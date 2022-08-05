@@ -2,12 +2,9 @@ version: '3.8'
 
 services:
  web:
-  build:
-   context: .
+  image: melonlove/python-docker
   ports:
   - 8000:5000
-  volumes:
-  - ./:/app
 
  mysqldb:
   image: mysql

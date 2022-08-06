@@ -1,7 +1,7 @@
 import mysql.connector
 import json
 from flask import Flask
-from flask import render_template
+from flask import render_template, redirect
 
 app = Flask(__name__)
 
@@ -11,7 +11,12 @@ def hello_world():
 
 @app.route('/test')
 def test():
-  return render_template("test.html")
+  iframe = 'https://www.youtube.com'
+  return render_template("test.html", iframe=iframe)
+
+@app.route('/go')
+def go():
+  return redirect('https://www.youtube.com')
 
 @app.route('/widgets')
 def get_widgets():

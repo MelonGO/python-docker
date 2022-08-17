@@ -139,7 +139,6 @@ if __name__ == '__main__':
     pages = range(1, TOTAL_PAGE + 1)
     pool.map(main, pages)
     pool.close()
-    pool.join()
 
 
 

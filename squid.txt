@@ -1,0 +1,17 @@
+yum -y install squid
+
+systemctl start squid
+
+systemctl enable squid
+
+systemctl status squid
+
+sudo vi /etc/squid/squid.conf
+
+acl localnet src 
+
+systemctl restart squid
+
+sudo firewall-cmd --permanent --add-port=3128/tcp
+
+firewall-cmd --reload

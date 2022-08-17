@@ -29,9 +29,9 @@ import re
 
 
 #-----------------search----------------------------
-content = 'Extra stings Hello 1234567 World_This is a Regex Demo Extra stings'
-result = re.search('Hello.*?(\d+).*?Demo', content)
-print(result)
+# content = 'Extra stings Hello 1234567 World_This is a Regex Demo Extra stings'
+# result = re.search('Hello.*?(\d+).*?Demo', content)
+# print(result)
 #---------------------------------------------------
 
 
@@ -55,10 +55,55 @@ html = '''<div id="songs-list">
 </li>
 </ul>
 </div>'''
+
+temp = '''
+
+    </div>
+</div>
+        <!--页面主体-->
+        <div class="review-list-container">
+            <!--商户信息-->
+        <div class="review-shop-wrap">
+    <div class="shop-info clearfix">
+        <h1 class="shop-name">悦摄视觉婚纱摄影工作室</h1>
+    </div>
+    <div class="rank-info">
+        <div class="nebula_star ">
+            <div class="star_icon">
+                <span class="star star_50"></span>
+                <span class="star star_50"></span>
+                <span class="star star_50"></span>
+                <span class="star star_50"></span>
+                <span class="star star_50"></span>
+            </div>
+                <div class="star_score score_50">4.90</div>
+        </div>
+        <span class="reviews">185条评价</span>
+        <span class="price">人均：6005元</span>
+	        <span class="score">
+	                <span class="item">摄影：4.90</span>
+	                <span class="item">造型：4.90</span>
+	                <span class="item">服务：4.90</span>
+            </span>
+    </div>
+    <div class="address-info">
+        地址:&nbsp;<bb class="anj11"></bb><bb class="ancwq"></bb>大道中风樯<bb class="ankd7"></bb>意<bb class="anut5"></bb>3栋<bb class="an36q"></bb><bb class="anqp8"></bb>楼3110<bb class="ans7k"></bb>（风樯行009进入）
+    </div>
+	    <div class="phone-info">
+            电话:&nbsp;<cc class="jqezn"></cc><cc class="jqgqc"></cc><cc class="jqgqc"></cc><cc class="jqgqc"></cc><cc class="jq6zb"></cc><cc class="jqgqc"></cc><cc class="jqcq7"></cc><cc class="jqotd"></cc>1<cc class="jqgqc"></cc>-1<cc class="jq30j"></cc><cc class="jqezn"></cc>1<cc class="jqgqc"></cc>1
+        </div>
+    <div class="more-wrap">
+        <div class="qcode">
+            <div class="qcode-wrap">
+                <img src="http://p0.meituan.net/dpgroup/8db53f85b5a3e72b79b12df8abeec0572506.png" alt="二维码">
+                <div class="qcode-r">
+'''
 #---------------------------------------------------
-# result = re.search('<li.*?active.*?singer="(.*?)">(.*?)</a>', html, re.S) 
-# if result:  
-#     print(result.group(1), result.group(2))
+
+results = re.findall('<span class="score">\s+<span class="item">(.*?)</span>\s+<span class="item">(.*?)</span>\s+<span class="item">(.*?)</span>\s+</span>', temp, re.S) 
+if results:
+	for result in results:
+		print(result)
 # #齐秦 往事随风
 #---------------------------------------------------
 # result = re.search('<li.*?singer="(.*?)">(.*?)</a>', html, re.S)

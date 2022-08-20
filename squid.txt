@@ -12,6 +12,6 @@ acl localnet src
 
 systemctl restart squid
 
-sudo firewall-cmd --permanent --add-port=3128/tcp
+sudo firewall-cmd --permanent --add-port=8787/tcp
 
 firewall-cmd --reload

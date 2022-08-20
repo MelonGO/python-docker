@@ -3,20 +3,31 @@ import json
 from flask import Flask
 from flask import render_template, redirect
 
+import pymongo
+
+MONGO_CONNECTION_STRING = 'mongodb://localhost:27017'
+MONGO_DB_NAME = 'wedding'
+MONGO_COLLECTION_NAME = 'wedding'
+
+client = pymongo.MongoClient(MONGO_CONNECTION_STRING)
+db = client['wedding']
+collection = db['wedding']
+
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-  return 'Hello, Docker! Jimmy'
+  return 'Hello, Jimmy!'
 
-@app.route('/test')
-def test():
-  iframe = 'https://www.youtube.com'
-  return render_template("test.html", iframe=iframe)
+@app.route('/XXX')
+def goXXX():
+  videos = collection.find()
+  return render_template("xxx.html", videos=videos)
 
-@app.route('/go')
-def go():
-  return redirect('https://www.youtube.com')
+@app.route('/XXX')
+def goXXX():
+  videos = collection.find()
+  return render_template("xxx.html", videos=videos)
 
 @app.route('/widgets')
 def get_widgets():
